@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fruit_states",
+  "info": {
+    "singularName": "fruit-state",
+    "pluralName": "fruit-states",
+    "displayName": "Fruit-state"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "fruits_list_test": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::fruits-list-test.fruits-list-test",
+      "mappedBy": "fruit_state"
+    }
+  }
+}

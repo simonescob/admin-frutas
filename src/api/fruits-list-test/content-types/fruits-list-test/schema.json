@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fruits_list_tests",
+  "info": {
+    "singularName": "fruits-list-test",
+    "pluralName": "fruits-list-tests",
+    "displayName": "fruits-list-test",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "fruit_state": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::fruit-state.fruit-state",
+      "inversedBy": "fruits_list_test"
+    }
+  }
+}
