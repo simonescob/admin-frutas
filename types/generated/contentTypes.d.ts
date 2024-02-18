@@ -783,108 +783,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiFruitStateFruitState extends Schema.CollectionType {
-  collectionName: 'fruit_states';
-  info: {
-    singularName: 'fruit-state';
-    pluralName: 'fruit-states';
-    displayName: 'Fruit-state';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    fruits_list_test: Attribute.Relation<
-      'api::fruit-state.fruit-state',
-      'oneToOne',
-      'api::fruits-list-test.fruits-list-test'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::fruit-state.fruit-state',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::fruit-state.fruit-state',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiFruitsListTestFruitsListTest extends Schema.CollectionType {
-  collectionName: 'fruits_list_tests';
-  info: {
-    singularName: 'fruits-list-test';
-    pluralName: 'fruits-list-tests';
-    displayName: 'fruits-list-test';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    price: Attribute.Decimal;
-    fruit_state: Attribute.Relation<
-      'api::fruits-list-test.fruits-list-test',
-      'oneToOne',
-      'api::fruit-state.fruit-state'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::fruits-list-test.fruits-list-test',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::fruits-list-test.fruits-list-test',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiFruitsStateFruitsState extends Schema.SingleType {
-  collectionName: 'fruits_states';
-  info: {
-    singularName: 'fruits-state';
-    pluralName: 'fruits-states';
-    displayName: 'fruits-state';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::fruits-state.fruits-state',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::fruits-state.fruits-state',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -903,9 +801,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::fruit-state.fruit-state': ApiFruitStateFruitState;
-      'api::fruits-list-test.fruits-list-test': ApiFruitsListTestFruitsListTest;
-      'api::fruits-state.fruits-state': ApiFruitsStateFruitsState;
     }
   }
 }
